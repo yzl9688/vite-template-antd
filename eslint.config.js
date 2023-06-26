@@ -21,6 +21,7 @@ module.exports = defineConfig({
     'import/extensions': ['.ts', '.tsx', '.vue'],
   },
   extends: [
+    './.eslintrc-auto-import.json',
     'eslint:recommended',
     'plugin:import/recommended',
     'plugin:import/errors',
