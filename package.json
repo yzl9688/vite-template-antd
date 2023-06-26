@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "ant-design-vue": "^3.2.20",
-    "vue": "^3.2.47"
+    "pinia": "^2.1.4",
+    "vue": "^3.2.47",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",

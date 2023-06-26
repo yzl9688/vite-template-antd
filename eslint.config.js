@@ -18,7 +18,7 @@ module.exports = defineConfig({
       typescript: true,
       node: true,
     },
-    'import/extensions': ['.ts', '.tsx'],
+    'import/extensions': ['.ts', '.tsx', '.vue'],
   },
   extends: [
     'eslint:recommended',
