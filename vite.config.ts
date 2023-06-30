@@ -4,7 +4,8 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
-import AutoImport from 'unplugin-auto-import/astro'
+import AutoImport from 'unplugin-auto-import/vite'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
@@ -12,9 +13,12 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     plugins: [
       vue(),
       vueJsx(),
+      visualizer(),
       AutoImport({
         eslintrc: {
           enabled: true,
+          filepath: './.eslintrc-auto-import.json',
+          globalsPropValue: true,
         },
         include: [
           /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
@@ -22,10 +26,12 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
           /\.vue\?vue/, // .vue
         ],
         imports: ['vue', 'vue-router'],
-        dts: './auto-imports.d.ts',
+        dts: true,
       }),
       Components({
         dts: true,
+        extensions: ['vue', 'ts', 'tsx'],
+        include: [/\.vue$/, /\.vue?vue/, /\.tsx?$/],
         types: [
           {
             from: 'vue-router',

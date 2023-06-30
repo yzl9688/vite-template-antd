@@ -2,3 +2,7 @@ dist
 node_modules
 .pnpm-lock.yaml
 commitlint.config.js
+components.d.ts
+auto-imports.d.ts
+.eslintrc-auto-import.json
+
