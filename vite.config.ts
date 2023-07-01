@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import type { ConfigEnv, UserConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -6,10 +6,26 @@ import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import AutoImport from 'unplugin-auto-import/vite'
 import { visualizer } from 'rollup-plugin-visualizer'
+import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
+  const env = loadEnv(mode, process.cwd(), '')
+
   return {
+    resolve: {
+      alias: {
+        '@': path.join(__dirname, './src'),
+        '~': path.join(__dirname, './src/assets'),
+      },
+    },
+    css: {
+      preprocessorOptions: {
+        less: {
+          javascriptEnabled: true,
+        },
+      },
+    },
     plugins: [
       vue(),
       vueJsx(),
@@ -38,7 +54,11 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
             names: ['RouterLink', 'RouterView'],
           },
         ],
-        resolvers: [AntDesignVueResolver()],
+        resolvers: [
+          AntDesignVueResolver({
+            // importStyle: 'less',
+          }),
+        ],
       }),
     ],
   }
