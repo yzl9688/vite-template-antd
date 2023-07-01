@@ -1,9 +1,12 @@
 {
-  "name": "vite-project",
+  "name": "vite-template-antd",
   "private": true,
   "version": "0.0.0",
   "scripts": {
     "serve": "vite",
+    "dev": "vue-tsc && vite build --mode dev",
+    "qa": "vue-tsc && vite build --mode qa",
+    "pre": "vue-tsc && vite build --mode pre",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "prepare": "husky install"

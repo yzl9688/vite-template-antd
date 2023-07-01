@@ -22,7 +22,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     css: {
       preprocessorOptions: {
         less: {
-          javascriptEnabled: true,
+          // javascriptEnabled: true,
         },
       },
     },
