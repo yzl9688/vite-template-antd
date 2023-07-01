@@ -10,7 +10,8 @@ module.exports = {
       'build',
       'ci',
       'chore',
-      'revert'
+      'revert',
+      'style'
     ]],
     "header-case": [0, 'always'],
     "subject-case": [0, 'always'],

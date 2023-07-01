@@ -50,6 +50,13 @@ module.exports = defineConfig({
     },
   ],
   rules: {
+    'no-var': 'error',
+    'prefer-const': 'error',
+    'no-const-assign': 'error',
+    'object-shorthand': 'error',
+    quotes: ['error', 'single'],
+    'no-eval': 'error',
+    'arrow-spacing': 'error',
     // vue
     'vue/multi-word-component-names': 'off',
     'vue/require-default-prop': 'off',
