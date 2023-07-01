@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Hello from './Hello.tsx'
+import Hello from '@/Hello.tsx'
 </script>
 
 <template>
