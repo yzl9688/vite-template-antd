@@ -13,6 +13,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
+    server: {
+      port: 3000,
+    },
     resolve: {
       alias: {
         '@': path.join(__dirname, './src'),
@@ -56,6 +59,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
         ],
         resolvers: [
           AntDesignVueResolver({
+            importStyle: false,
+            resolveIcons: true,
             // importStyle: 'less',
           }),
         ],
